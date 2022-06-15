@@ -1,4 +1,4 @@
-# Webdura SERVER
+# Booking SERVER
 
 ## How to setup server?
 
