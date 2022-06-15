@@ -1,0 +1,389 @@
+{
+	"info": {
+		"_postman_id": "8b277647-3ff2-48c0-bcaa-4441d7a2ad9b",
+		"name": "Webdura API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15254461"
+	},
+	"item": [
+		{
+			"name": "register user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{id_token}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{NECTTOS_BEARER}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\":\"jijo\",\n    \"lastName\":\"j\",\n    \"email\": \"jijojoiji24@gmail.com\",\n    \"phoneNumber\": \"9907018106\",\n    \"address\": [{\n        \"nickname\":\"my home\",\n        \"addressLineOne\": \"pozhiyoor\",\n        \"addressLineTwo\": \"tvm\",\n        \"latitude\":\"ASd\",\n        \"longitude\":\"ASd\"\n    },{\n        \"nickname\":\"office\",\n        \"addressLineOne\": \"qburst\",\n        \"addressLineTwo\": \"kazhakootam\",\n        \"latitude\":\"ASd\",\n        \"longitude\":\"ASd\"\n    }],\n    \"roles\": [\"customer\", \"admin\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local_server}}/api/v1/profile/register",
+					"host": [
+						"{{local_server}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"profile",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create package",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{id_token}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{NECTTOS_BEARER}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n    \"packageName\": \"yoga diamond\",\n    \"description\": \"yoga diamond package - luxury\",\n    \"email\" : \"bennyvincent25@gmail.com\",\n    \"isActive\": true,\n    \"packagePrices\": {\n            \"price\": 9000,\n            \"salePrice\": 7999\n        }\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local_server}}/api/v1/package/add",
+					"host": [
+						"{{local_server}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"package",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createBooking",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{id_token}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{NECTTOS_BEARER}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"availableTimes\": [1651775400000, 1656527400000],\n    \"addressId\": \"62a8b7a2fbd882aacf7a65c3\",\n    \"email\" : \"bennyvincent25@gmail.com\",\n    \"packageId\": \"62a8c6dfe09fa2012830d314\",\n    \"note\":\"hi my nineth booking\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local_server}}/api/v1/booking/create",
+					"host": [
+						"{{local_server}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"booking",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get booking by filter- payment-pending",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{id_token}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{NECTTOS_BEARER}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local_server}}/api/v1/booking/filter?email=bennyvincent25@gmail.com&offset=2&limit=5&status=payment-pending",
+					"host": [
+						"{{local_server}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"booking",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "bennyvincent25@gmail.com"
+						},
+						{
+							"key": "offset",
+							"value": "2"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "status",
+							"value": "payment-pending"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get booking by filter- payment-active",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{id_token}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{NECTTOS_BEARER}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local_server}}/api/v1/booking/filter?email=bennyvincent25@gmail.com&offset=1&limit=5&status=payment-active",
+					"host": [
+						"{{local_server}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"booking",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "bennyvincent25@gmail.com"
+						},
+						{
+							"key": "offset",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "status",
+							"value": "payment-active"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get booking by filter- payment-success",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{id_token}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{NECTTOS_BEARER}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local_server}}/api/v1/booking/filter?email=bennyvincent25@gmail.com&offset=1&limit=5&status=payment-success",
+					"host": [
+						"{{local_server}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"booking",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "bennyvincent25@gmail.com"
+						},
+						{
+							"key": "offset",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "status",
+							"value": "payment-success"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateBooking - payment active",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{id_token}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{NECTTOS_BEARER}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\" : \"bennyvincent25@gmail.com\",\n    \"bookingId\": \"Webdura-20220614-11529260\",\n    \"status\":\"payment-active\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local_server}}/api/v1/booking/update",
+					"host": [
+						"{{local_server}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"booking",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateBooking - payment success",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{id_token}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{NECTTOS_BEARER}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\" : \"bennyvincent25@gmail.com\",\n    \"bookingId\": \"Webdura-20220614-11529260\",\n    \"status\":\"payment-success\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local_server}}/api/v1/booking/update",
+					"host": [
+						"{{local_server}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"booking",
+						"update"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

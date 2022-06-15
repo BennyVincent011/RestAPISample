@@ -12,7 +12,7 @@ npm run setup
 
 1. clone this repo from
 
-    - `clone the repo`https://github.com/BennyVincent011/RestAPISample and move to webdura
+    - `clone the repo`
 
 2. Setup environment varibles
 
